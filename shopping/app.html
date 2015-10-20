@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="shopping">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shopping</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../bower_components/ui-route/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/controllers/shoppingController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/productListController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/checkoutController.js"></script>
+    <script type="text/javascript" src="scripts/filters/customeFilters.js"></script>
+    <script type="text/javascript" src="scripts/components/cart/cart.js"></script>
+</head>
+
+<body ng-controller="shoppingController as shoppingCtrl">
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#">SHOPPING</a>
+        <cart-summary></cart-summary>
+    </div>
+    <div class="alert alert-danger" ng-show="shoppingCtrl.data.error">
+        Error {{shoppingCtrl.data.error.status}}!
+        <a href="app.html" class="alert-link">Click here to try again</a>
+    </div>
+    <ui-view></ui-view>
+</body>
+
+</html>

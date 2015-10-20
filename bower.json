@@ -1,0 +1,27 @@
+{
+  "name": "angular-bootstrap-deployd",
+  "version": "0.0.1",
+  "homepage": "https://github.com/hui1hui2hui3/angular-bootstrap-deployd",
+  "authors": [
+    "张少辉 <zhangshaohui@kyee.com.cn>"
+  ],
+  "description": "shopping",
+  "keywords": [
+    "angular",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5",
+    "ui-route": "~0.2.15",
+    "angular-resource": "~1.4.7"
+  }
+}

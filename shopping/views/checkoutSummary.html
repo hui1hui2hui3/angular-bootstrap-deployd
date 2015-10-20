@@ -1,0 +1,38 @@
+<h2>Your Cart</h2>
+<div class="alert alert-warning" ng-show="checkoutCtrl.cartData.length==0">
+    No Products!!!
+    <a class="alert-link" ui-sref="products">Click Here to Add Product</a>
+</div>
+<div ng-hide="checkoutCtrl.cartData.length==0">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="text-center">Quantity</th>
+				<th>Item</th>
+				<th class="text-right">Price</th>
+				<th class="text-right">Subtotal</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in checkoutCtrl.cartData">
+				<td class="text-center">{{product.count}}</td>
+				<td>{{product.name}}</td>
+				<td class="text-right">{{product.price | currency:'¥'}}</td>
+				<td class="text-right">{{product.price * product.count | currency:'¥'}}</td>
+				<td>
+					<button class="btn btn-warning btn-sm" ng-click="checkoutCtrl.remove(product.id)">Remove</button>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="text-right">Total:</td>
+				<td class="text-right">{{checkoutCtrl.total() | currency:'¥'}}</td>
+			</tr>
+		</tfoot>
+	</table>
+	<div class="text-center">
+		<a ui-sref="products" class="btn btn-primary">Continue Shopping</a>
+		<a ui-sref="placeorder" class="btn btn-primary">Place Order</a>
+	</div>
+</div>
