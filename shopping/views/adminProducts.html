@@ -1,0 +1,58 @@
+<style>
+	#productTable {
+		width: auto;
+	}
+	#productTable td {
+		max-width: 150px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	#productTable td input {
+		max-width: 125px;
+	}
+</style>
+<div>
+    <table id="productTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in productCtrl.products" ng-hide="product.id === productCtrl.editedProduct.id">
+                <td>{{product.name}}</td>
+                <td>{{product.category}}</td>
+                <td class="description">{{product.description}}</td>
+                <td>{{product.price | currency}}</td>
+                <td>
+                    <button class="btn btn-xs btn-primary" ng-click="productCtrl.startEdit(product)">Edit</button>
+                    <button class="btn btn-xs btn-primary" ng-click="productCtrl.deleteProduct(product)">Delete</button>
+                </td>
+            </tr>
+            <tr ng-class="{danger:productCtrl.editedProduct}">
+                <td>
+                    <input ng-model="productCtrl.editedProduct.name" required>
+                </td>
+                <td>
+                    <input ng-model="productCtrl.editedProduct.category" required>
+                </td>
+                <td>
+                	<input ng-model="productCtrl.editedProduct.description" required>
+                </td>
+                <td>
+                	<input ng-model="productCtrl.editedProduct.price" required>	
+                </td>
+                <td>
+                	<button ng-hide="productCtrl.editedProduct.id" class="btn btn-xs btn-primary" ng-click="productCtrl.createProduct(productCtrl.editedProduct)">Create</button>
+                	<button ng-show="productCtrl.editedProduct.id" class="btn btn-xs btn-primary" ng-click="productCtrl.updateProduct(productCtrl.editedProduct)">Save</button>
+                	<button ng-show="productCtrl.editedProduct" class="btn btn-xs btn-primary" ng-click="productCtrl.cancelEdit()">Cancel</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

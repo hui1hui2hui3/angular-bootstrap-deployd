@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="shoppingAdmin">
+
+<head>
+    <title>Administrator</title>
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../bower_components/ui-route/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript">
+    angular.module('shoppingAdmin', ['ui.router', 'ngResource'])
+        .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+            $stateProvider.state('login', {
+                url: '/login',
+                templateUrl: 'views/adminLogin.html',
+                controller: 'AdminController as adminCtrl'
+            }).state('main', {
+                url: '/main',
+                templateUrl: 'views/adminMain.html',
+                controller: 'AdminMainController as mainCtrl',
+                abstract: true
+            }).state('main.products', {
+                url: '/products',
+                views: {
+                    'main': {
+                        templateUrl: 'views/adminProducts.html',
+                        controller: 'ProductsController as productCtrl'
+                    }
+                }
+            }).state('main.orders', {
+                url: '/orders',
+                views: {
+                    'main': {
+                        templateUrl: 'views/adminOrders.html',
+                        controller: 'OrdersController as orderCtrl'
+                    }
+                }
+            });
+
+            $urlRouterProvider.otherwise('/login');
+        }]);
+    </script>
+    <script type="text/javascript" src="scripts/controllers/adminControllers.js"></script>
+    <script type="text/javascript" src="scripts/controllers/adminProductController.js"></script>
+</head>
+
+<body>
+    <ui-view></ui-view>
+</body>
+
+</html>

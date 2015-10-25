@@ -1,0 +1,13 @@
+<div class="panel panel-default row">
+    <div class="col-xs-3 panel-body">
+        <a ng-repeat="item in mainCtrl.screens" class="btn btn-block btn-default" ng-class="{'btn-primary':item===mainCtrl.current}" ng-click="mainCtrl.setScreen($index)">
+        	{{item}}
+   		</a>
+    </div>
+    <div class="col-xs-8 panel-body">
+<!--     	<div ng-include="mainCtrl.getScreen()">
+    	</div>
+ -->    
+		<ui-view name="main"></ui-view>
+ </div>
+</div>
