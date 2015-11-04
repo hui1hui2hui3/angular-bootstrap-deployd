@@ -1,0 +1,31 @@
+{
+  "name": "angular-bootstrap-deployd",
+  "version": "1.0.0",
+  "description": "Angular Bootstrap Deployd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hui1hui2hui3/angular-bootstrap-deployd.git"
+  },
+  "author": "Huis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hui1hui2hui3/angular-bootstrap-deployd/issues"
+  },
+  "homepage": "https://github.com/hui1hui2hui3/angular-bootstrap-deployd#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.0.0",
+    "gulp-ruby-sass": "^2.0.5",
+    "gulp-uglify": "^1.4.2",
+    "open": "0.0.5"
+  }
+}
